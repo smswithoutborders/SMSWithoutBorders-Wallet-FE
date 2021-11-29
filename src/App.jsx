@@ -4,7 +4,8 @@ import "react-phone-number-input/style.css"
 import Login from "pages/Login";
 import SignUp from "pages/SignUp"
 import DashBoard from "pages/DashBoard";
-import { Loader } from "components";
+import PrivacyPage from "pages/PrivacyPage";
+import { Loader, Navbar, Footer } from "components";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { getLocalState, setLocalState, clearLocalState, removeToken, removeProfile } from "services/storage.service";
 
@@ -94,7 +95,9 @@ const App = () => {
         dispatch,
         handleLogOut
       }}>
+
       <Router>
+        {token && <Navbar />}
         <Switch>
           <Route exact path="/">
             {token ? <DashBoard /> : <Redirect to="/login" />}
@@ -108,7 +111,11 @@ const App = () => {
           <Route exact path="/sign-up">
             <SignUp />
           </Route>
+          <Route exact path="/privacy-policy">
+            <PrivacyPage />
+          </Route>
         </Switch>
+        {token && <Footer />}
       </Router>
     </AppContext.Provider>
   );

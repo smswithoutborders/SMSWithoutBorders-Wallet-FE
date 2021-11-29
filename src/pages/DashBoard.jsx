@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Footer, PageAnimationWrapper } from "components";
+import { PageAnimationWrapper } from "components";
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Profile from 'pages/Profile';
 import Wallet from 'pages/Wallet';
@@ -13,9 +13,7 @@ const DashBoard = () => {
   const { path } = useRouteMatch();
 
   return (
-    <>
       <PageAnimationWrapper>
-        <Navbar />
         <Switch>
           <Route exact path={path} component={Profile} />
           <Route exact path={`${path}/profile`} component={Profile} />
@@ -25,9 +23,7 @@ const DashBoard = () => {
           <Route exact path={`${path}/oauth2/twitter/Tokens/redirect/`} component={TwitterRedirect} />
           <Route component={NotFoundPage} />
         </Switch>
-        <Footer />
       </PageAnimationWrapper>
-    </>
   );
 };
 

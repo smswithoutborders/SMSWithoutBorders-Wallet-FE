@@ -22,7 +22,7 @@ const SyncButton = tw.button`inline-flex items-center text-center rounded-md tex
 const ButtonGroup = tw.div`flex flex-col md:flex-row items-center mt-4`;
 
 const Profile = () => {
-    useTitle("Your Profile")
+    useTitle("Account")
     const { dispatch, state } = useAppContext();
     const { userProfile, token, id } = state;
     const [loading, setLoading] = useState(false);

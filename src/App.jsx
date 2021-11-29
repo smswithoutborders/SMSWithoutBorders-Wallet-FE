@@ -3,10 +3,7 @@ import "rsuite/dist/styles/rsuite-default.css";
 import "react-phone-number-input/style.css"
 import Login from "pages/Login";
 import SignUp from "pages/SignUp"
-import HomePage from "pages/HomePage";
 import DashBoard from "pages/DashBoard";
-import PrivacyPage from "pages/PrivacyPage";
-import ContactPage from "pages/ContactPage";
 import { Loader } from "components";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { getLocalState, setLocalState, clearLocalState, removeToken, removeProfile } from "services/storage.service";
@@ -100,16 +97,8 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            {token ? <DashBoard /> : <Redirect to="/login" />}
           </Route>
-
-          <Route exact path="/privacy-policy">
-            <PrivacyPage />
-          </Route>
-          <Route exact path="/contact-us">
-            <ContactPage />
-          </Route>
-
           <Route path="/dashboard">
             {token ? <DashBoard /> : <Redirect to="/login" />}
           </Route>

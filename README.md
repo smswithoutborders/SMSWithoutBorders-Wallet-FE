@@ -1,9 +1,9 @@
-# SMSwithoutBorders.com
+# SMSwithoutBorders Wallet
 
 
 ## Setup Guide
 
-Quick start guide to get the dashboard *running*:
+Please follow the steps below to setup your dev environment
 
 ### Install dependencies
 
@@ -38,7 +38,7 @@ You will also see any lint errors in the console.
 ### Create a production build
 
 ```
-yarn run build
+yarn build
 ```
 
 Builds the app for production to the `build` folder using esbuild and Babel.
